@@ -50,7 +50,7 @@
             <div class="card-footer">
               <div class="row">
                 <div class="col-6 d-grid">
-                  <a href="{{ Auth::user()->role->slug === 'super-admin' ? route('attendance.index', $attendance->id) : (Auth::user()->role->slug === 'administrator' ? route('admin.attendance.index', $attendance->id) : route('moderator.attendance.index', $attendance->id) ) }}" class="btn btn-outline-secondary" >
+                  <a href="{{ Auth::user()->role->slug === 'super-admin' ? route('attendance.index') : (Auth::user()->role->slug === 'administrator' ? route('admin.attendance.index') : route('moderator.attendance.index') ) }}" class="btn btn-outline-secondary" >
                     <i class="align-middle me-1" data-feather="arrow-left"></i>
                     <span class="ps-1">{{ __('Discard') }}</span>
                   </a>

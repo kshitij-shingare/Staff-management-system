@@ -35,7 +35,7 @@
             <div class="card-footer">
               <div class="row">
                 <div class="col-6 d-grid">
-                  <a href="{{ Auth::user()->role->slug === 'super-admin' ? route('schedule.index', $schedule->id) : (Auth::user()->role->slug === 'administrator' ? route('admin.schedule.index', $schedule->id) : route('moderator.schedule.index', $schedule->id) ) }}" class="btn btn-outline-secondary" >
+                  <a href="{{ Auth::user()->role->slug === 'super-admin' ? route('schedule.index') : (Auth::user()->role->slug === 'administrator' ? route('admin.schedule.index') : route('moderator.schedule.index') ) }}" class="btn btn-outline-secondary" >
                     <i class="align-middle me-1" data-feather="arrow-left"></i>
                     <span class="ps-1">{{ __('Discard') }}</span>
                   </a>

@@ -1,6 +1,6 @@
-# Employee Management System
+# Staff Management System
 
-The Employee Management System is a comprehensive solution designed to streamline and enhance human resource operations within organizations. This system offers a user-friendly interface that facilitates efficient management of employee profiles, tracking of leave and attendance, task assignment, and performance evaluations. By centralizing these essential HR functions, the system empowers administrators to optimize workforce management, boost productivity, and ensure accurate data-driven decision-making.
+The Staff Management System is a comprehensive solution designed to streamline and enhance human resource operations within organizations. This system offers a user-friendly interface that facilitates efficient management of employee profiles, tracking of leave and attendance, task assignment, and performance evaluations. By centralizing these essential HR functions, the system empowers administrators to optimize workforce management, boost productivity, and ensure accurate data-driven decision-making.
 
 
 ## Table of Contents
@@ -29,12 +29,12 @@ The Employee Management System is a comprehensive solution designed to streamlin
 
 ## Introduction
 
-The Employee Management System is a comprehensive and user-friendly application designed to streamline and simplify the process of managing employees within an organization. This system provides an efficient and organized way to handle various employee-related tasks, from onboarding and attendance tracking to performance evaluation and payroll management.
+The Staff Management System is a comprehensive and user-friendly application designed to streamline and simplify the process of managing employees within an organization. This system provides an efficient and organized way to handle various employee-related tasks, from onboarding and attendance tracking to performance evaluation and payroll management.
 
 
 ## Live Preview
 
-To preview this project please visit https://hrms.shawon-khan.com/
+To preview this project please visit https://SMS.shawon-khan.com/
 
 
 ## User Interface
@@ -65,7 +65,7 @@ To preview this project please visit https://hrms.shawon-khan.com/
 
 ## Technologies Used
 
-The following technologies have been used in the development of Employee Management System (HRMS):
+The following technologies have been used in the development of Staff Management System (SMS):
 
 - **[Laravel](https://laravel.com/)** : A popular PHP web application framework known for its elegant syntax and feature-rich ecosystem.
 - **[Laravel Blade](https://laravel.com/)** : The templating engine provided by Laravel for designing and rendering views.
@@ -88,7 +88,7 @@ The following technologies have been used in the development of Employee Managem
 Securely manage user access with a robust authentication system. Different user roles (admin, manager, hr etc) ensure appropriate permissions and access levels.
 
 ##### **02. Dashboard**
-Upon logging in as an administrator, you will be welcomed to the Admin Dashboard. The dashboard provides an insightful overview of vital statistics, including the total count of employees, ongoing projects, and recent activities. This central hub offers swift access to critical sections of the Employee Management System, empowering you to efficiently oversee employee profiles, leave requests, task assignments, and more.
+Upon logging in as an administrator, you will be welcomed to the Admin Dashboard. The dashboard provides an insightful overview of vital statistics, including the total count of employees, ongoing projects, and recent activities. This central hub offers swift access to critical sections of the Staff Management System, empowering you to efficiently oversee employee profiles, leave requests, task assignments, and more.
 
 ##### **03. Employee Profiles** 
 Maintain detailed profiles for each employee, including personal information, contact details, job history, and more.
@@ -111,7 +111,7 @@ Generate insightful reports and analytics on various aspects of employee managem
 
 ## Getting Started
 
-Follow these instructions to get a copy of the Employee Management System project up and running on your local machine for development and testing purposes.
+Follow these instructions to get a copy of the Staff Management System project up and running on your local machine for development and testing purposes.
 
 #### Prerequisites
 
@@ -125,7 +125,7 @@ Before you proceed, ensure you have the following software installed:
 
 #### Installation
 
-01. Clone the **Employee Management System** repository to your local machine using the following command:
+01. Clone the **Staff Management System** repository to your local machine using the following command:
 ```bash
 git clone https://github.com/MOHONA678/employee-management-system.git
 ```
@@ -162,7 +162,7 @@ or,
 yarn build
 ```
 
-06. Create a new MySQL database for Employee Management System and update the `.env` file with your database credentials:
+06. Create a new MySQL database for Staff Management System and update the `.env` file with your database credentials:
 ```bash
 cp .env.example .env
 ```
@@ -182,11 +182,11 @@ php artisan migrate --seed
 php artisan serve
 ```
 
-Congratulations! Employee Management System should now be up and running at `http://localhost:8000`.
+Congratulations! Staff Management System should now be up and running at `http://localhost:8000`.
 
 
 ## AdminKit Admin Panel
-Our Employee Management System incorporates the AdminKit Admin Panel to streamline administrative tasks. AdminKit is a flexible and modern admin dashboard template built with Bootstrap and other front-end technologies. Its customizable components and UI elements enable efficient management of various HRMS functionalities.
+Our Staff Management System incorporates the AdminKit Admin Panel to streamline administrative tasks. AdminKit is a flexible and modern admin dashboard template built with Bootstrap and other front-end technologies. Its customizable components and UI elements enable efficient management of various SMS functionalities.
 
 Get it from here: **[AdminKit](https://adminkit.io/)**
 
@@ -207,7 +207,7 @@ Get it from here: **[AdminKit](https://adminkit.io/)**
 
 
 ## Want to Contribute?
-We welcome contributions from the community! If you'd like to contribute to the Employee Management System project, please follow these steps:
+We welcome contributions from the community! If you'd like to contribute to the Staff Management System project, please follow these steps:
 
 01. Fork the repository.
 02. Create a new branch for your feature/bug fix.
@@ -216,4 +216,4 @@ We welcome contributions from the community! If you'd like to contribute to the 
 
 
 ## License
-This Employee Management System is distributed under the `GNU General Public License version 3.0 (GPL-3.0)`. You can find the full text of the license in the `LICENSE` file.
+This Staff Management System is distributed under the `GNU General Public License version 3.0 (GPL-3.0)`. You can find the full text of the license in the `LICENSE` file.

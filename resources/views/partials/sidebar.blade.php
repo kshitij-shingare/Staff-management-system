@@ -1,7 +1,7 @@
 <aside id="sidebar" class="sidebar js-sidebar">
   <div class="sidebar-content js-simplebar">
-    <a class="sidebar-brand" href="index.html">
-      <span class="align-middle">HRMS</span>
+    <a class="sidebar-brand" href="{{ url('/') }}">
+      <span class="align-middle">SMS</span>
     </a>
 
     <ul class="sidebar-nav">
@@ -9,7 +9,8 @@
         <a class="sidebar-link" href="{{ Auth::user()->role->slug === 'super-admin' ? route('super.dashboard') : 
         ( Auth::user()->role->slug === 'administrator' ? route('admin.dashboard')  : 
         ( Auth::user()->role->slug === 'moderator' ? route('moderator.dashboard')  : 
-        ( Auth::user()->role->slug === 'hr' ? route('hr.dashboard')  : route('payroll.dashboard')))) }}">
+        ( Auth::user()->role->slug === 'hr' ? route('hr.dashboard')  : 
+        ( Auth::user()->role->slug === 'payroll-manager' ? route('payroll.dashboard') : route('dashboard'))))) }}">
           <i class="align-middle" data-feather="sliders"></i>
           <span class="align-middle">{{ __('Dashboard') }}</span>
         </a>
