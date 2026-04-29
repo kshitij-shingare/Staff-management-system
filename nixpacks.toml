@@ -1,8 +1,8 @@
 [phases.setup]
-nixPkgs = ['php84', 'php84Extensions.pdo', 'php84Extensions.pdo_sqlite', 'php84Extensions.mbstring', 'php84Extensions.xml', 'php84Extensions.curl', 'php84Extensions.tokenizer', 'php84Extensions.dom', 'php84Extensions.fileinfo', 'php84Extensions.ctype', 'nodejs_20']
+nixPkgs = ['php83', 'php83Extensions.pdo', 'php83Extensions.pdo_sqlite', 'php83Extensions.mbstring', 'php83Extensions.xml', 'php83Extensions.curl', 'php83Extensions.tokenizer', 'php83Extensions.dom', 'php83Extensions.fileinfo', 'php83Extensions.ctype', 'nodejs_20']
 
 [phases.install]
-cmds = ['composer install --no-dev --optimize-autoloader', 'npm install', 'npm run build']
+cmds = ['composer update --no-dev --optimize-autoloader --no-interaction', 'npm install', 'npm run build']
 
 [start]
 cmd = 'mkdir -p /app/storage/database && touch /app/storage/database/database.sqlite && php artisan migrate --force --seed && php artisan serve --host=0.0.0.0 --port=${PORT:-8000}'
