@@ -2,7 +2,7 @@
 nixPkgs = ['php83', 'php83Extensions.pdo', 'php83Extensions.pdo_sqlite', 'php83Extensions.mbstring', 'php83Extensions.xml', 'php83Extensions.curl', 'php83Extensions.tokenizer', 'php83Extensions.dom', 'php83Extensions.fileinfo', 'php83Extensions.ctype', 'nodejs_20']
 
 [phases.install]
-cmds = ['composer update --no-dev --optimize-autoloader --no-interaction', 'cp .env.example .env', 'php artisan key:generate --force', 'npm install', 'npm run build']
+cmds = ['composer update --no-dev --optimize-autoloader --no-interaction', 'cp .env.example .env', 'npm install', 'npm run build']
 
 [start]
 cmd = 'rm -f /app/database/database.sqlite && touch /app/database/database.sqlite && php artisan migrate --force --seed && php artisan serve --host=0.0.0.0 --port=${PORT:-8000}'
