@@ -5,4 +5,4 @@ nixPkgs = ['php83', 'php83Extensions.pdo', 'php83Extensions.pdo_sqlite', 'php83E
 cmds = ['composer update --no-dev --optimize-autoloader --no-interaction', 'cp .env.example .env', 'php artisan key:generate --force', 'npm install', 'npm run build']
 
 [start]
-cmd = 'mkdir -p /app/storage/database && touch /app/storage/database/database.sqlite && php artisan migrate:fresh --force --seed && php artisan serve --host=0.0.0.0 --port=${PORT:-8000}'
+cmd = 'mkdir -p /app/storage/database && rm -f /app/storage/database/database.sqlite && touch /app/storage/database/database.sqlite && php artisan migrate --force --seed && php artisan serve --host=0.0.0.0 --port=${PORT:-8000}'

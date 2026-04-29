@@ -33,7 +33,7 @@ class DesignationSeeder extends Seeder
         ];
 
         foreach ($designations as $designation) {
-            Designation::create($designation);
+            Designation::firstOrCreate(['title' => $designation['title']], $designation);
         }
     }
 }
