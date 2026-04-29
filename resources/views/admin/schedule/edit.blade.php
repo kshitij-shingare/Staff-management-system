@@ -12,7 +12,7 @@
   <section class="row">
     <div class="col-12 d-flex align-items-center justify-content-center">
       <div class="col-6">
-        <form action="{{  Auth::user()->role->slug === 'super-admin' ? route('schedule.update', $schedul->id) : ( Auth::user()->role->slug === 'administrator' ? route('admin.schedule.update', $schedule->id) : route('moderator.schedule.update', $schedule->id) )  }}" method="post">
+        <form action="{{  Auth::user()->role->slug === 'super-admin' ? route('schedule.update', $schedule->id) : ( Auth::user()->role->slug === 'administrator' ? route('admin.schedule.update', $schedule->id) : route('moderator.schedule.update', $schedule->id) )  }}" method="post">
           @csrf
           @method('put')
           <div class="card flex-fill">

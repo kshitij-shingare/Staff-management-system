@@ -7,7 +7,7 @@
 @section('header')
   <div class="d-flex align-items-center justify-content-between mb-4">
     <h1 class="h3 mb-3">Payroll</h1>
-    <a href="{{ route('payroll.report') }}" class="btn btn-secondary">
+    <a href="{{ Auth::user()->role->slug === 'super-admin' ? route('payroll.report') : (Auth::user()->role->slug === 'administrator' ? route('admin.payroll.report') : route('manager.payroll.report') ) }}" class="btn btn-secondary">
       <i class="fas fa-arrow-left"></i>
       <span class="ps-1">{{ __('Back') }}</span>
     </a>
@@ -22,7 +22,7 @@
         <h5 class="card-title mb-0">{{ __('Employees Daily Attendance') }}</h5>
       </div>
       <div class="card-body">
-        <form action="{{ route('generate.payroll') }}" method="POST">
+        <form action="{{ Auth::user()->role->slug === 'super-admin' ? route('generate.payroll') : (Auth::user()->role->slug === 'administrator' ? route('admin.calculate.payroll') : route('manager.calculate.payroll') ) }}" method="POST">
           @csrf
           <div class="row g-3">
             <div class="col-3">

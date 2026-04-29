@@ -51,6 +51,8 @@
                     <i class="fas fa-eye"></i>
                   </a>
                   <form action="{{ Auth::user()->role->slug === 'super-admin' ? route('employee.destroy', $employee->id) : (Auth::user()->role->slug === 'administrator' ? route('admin.employee.destroy', $employee->id) : route('hr.employee.destroy', $employee->id) ) }}" method="post">
+                    @csrf
+                    @method('delete')
                     <a href="#" class="btn btn-danger btn-sm" onclick="del(event, this)">
                       <i class="fas fa-trash-alt"></i>
                     </a>

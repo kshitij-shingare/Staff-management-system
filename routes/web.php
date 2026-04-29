@@ -91,6 +91,7 @@ Route::middleware('admin')->prefix('admin')->group( function () {
         Route::get('/', [EmployeeController::class, 'index'])->name('admin.employee.index');
         Route::get('/create', [EmployeeController::class, 'create'])->name('admin.employee.create');
         Route::post('/', [EmployeeController::class, 'store'])->name('admin.employee.store');
+        Route::get('/{employee}/show', [EmployeeController::class, 'show'])->name('admin.employee.show');
         Route::get('/{employee}/edit', [EmployeeController::class, 'edit'])->name('admin.employee.edit');
         Route::put('/{employee}', [EmployeeController::class, 'update'])->name('admin.employee.update');
         Route::delete('/{employee}', [EmployeeController::class, 'destroy'])->name('admin.employee.destroy');
@@ -126,11 +127,9 @@ Route::middleware('admin')->prefix('admin')->group( function () {
         Route::delete('/{user}', [UserController::class, 'destroy'])->name('admin.users.destroy');
     });
     Route::prefix('payroll')->group(function() {
-        
         Route::get('/', [PayrollController::class, 'index'])->name('admin.payroll.index');
         Route::get('/create', [PayrollController::class, 'create'])->name('admin.payroll.create');
-        
-
+        Route::get('/report', [PayrollController::class, 'sheetReport'])->name('admin.payroll.report');
     });
     Route::post('/calculate', [PayrollController::class, 'calculatePayroll'])->name('admin.calculate.payroll');
 });
@@ -192,11 +191,9 @@ Route::middleware('hr')->prefix('hr-manager')->group( function () {
 Route::middleware('payroll')->prefix('manager')->group( function () {
     Route::get('/', [AdminController::class, 'index'])->name('payroll.dashboard');
     Route::prefix('payroll')->group(function() {
-        
         Route::get('/', [PayrollController::class, 'index'])->name('manager.payroll.index');
         Route::get('/create', [PayrollController::class, 'create'])->name('manager.payroll.create');
-        
-
+        Route::get('/report', [PayrollController::class, 'sheetReport'])->name('manager.payroll.report');
     });
     Route::post('/calculate', [PayrollController::class, 'calculatePayroll'])->name('manager.calculate.payroll');
 });

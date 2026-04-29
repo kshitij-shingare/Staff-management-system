@@ -12,7 +12,7 @@
   <section class="row">
     <div class="col-12 d-flex align-items-center justify-content-center">
       <div class="col-6">
-        <form action="{{ Auth::user()->role->slug === 'super-admin' ? route('desgination.store') : (Auth::user()->role->slug === 'administrator' ? route('admin.desgination.store') : route('hr.desgination.store') ) }}" method="post">
+        <form action="{{ Auth::user()->role->slug === 'super-admin' ? route('designation.store') : (Auth::user()->role->slug === 'administrator' ? route('admin.designation.store') : route('hr.designation.store') ) }}" method="post">
           @csrf
           <div class="card flex-fill">
             <div class="card-header">

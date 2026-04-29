@@ -9,7 +9,7 @@
         <a class="sidebar-link" href="{{ Auth::user()->role->slug === 'super-admin' ? route('super.dashboard') : 
         ( Auth::user()->role->slug === 'administrator' ? route('admin.dashboard')  : 
         ( Auth::user()->role->slug === 'moderator' ? route('moderator.dashboard')  : 
-        ( Auth::user()->role->slug === 'hr' ? route('hr.dashboard')  : 
+        ( Auth::user()->role->slug === 'hr-manager' ? route('hr.dashboard')  : 
         ( Auth::user()->role->slug === 'payroll-manager' ? route('payroll.dashboard') : route('dashboard'))))) }}">
           <i class="align-middle" data-feather="sliders"></i>
           <span class="align-middle">{{ __('Dashboard') }}</span>
@@ -152,7 +152,7 @@
 
       @if (Auth::check() && (Auth::user()->role->slug === 'super-admin' || Auth::user()->role->slug === 'administrator' || Auth::user()->role->slug === 'payroll-manager')) --}}
         <li class="sidebar-item">
-        <a class="sidebar-link" href="{{ route('payroll.create') }}">
+        <a class="sidebar-link" href="{{ Auth::user()->role->slug === 'super-admin' ? route('payroll.create') : (Auth::user()->role->slug === 'administrator' ? route('admin.payroll.create') : route('manager.payroll.create') ) }}">
           <i class="fa-solid fa-file-export"></i>
           <span class="align-middle">{{ __('Generate Payroll') }}</span>
         </a>
@@ -161,7 +161,7 @@
 
       @if (Auth::check() && (Auth::user()->role->slug === 'super-admin' || Auth::user()->role->slug === 'administrator' || Auth::user()->role->slug === 'payroll-manager')) --}}
         <li class="sidebar-item">
-        <a class="sidebar-link" href="{{ route('payroll.report') }}">
+        <a class="sidebar-link" href="{{ Auth::user()->role->slug === 'super-admin' ? route('payroll.report') : (Auth::user()->role->slug === 'administrator' ? route('admin.payroll.report') : route('manager.payroll.report') ) }}">
           <i class="fa-solid fa-file-export"></i>
           <span class="align-middle">{{ __('Payroll Sheet') }}</span>
         </a>

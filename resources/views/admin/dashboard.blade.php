@@ -8,6 +8,10 @@
   <h1 class="h3 mb-3"><strong>Analytics</strong> Dashboard</h1>
 @endsection
 
+@php
+  $roleSlug = Auth::user()->role->slug;
+@endphp
+
 @section('content')
   <section class="row">
 	<div class="col-sm-6">
@@ -17,7 +21,7 @@
 			<div class="card-body">
 			  <div class="row">
 				<div class="col mt-0">
-				  <a href="{{ route('schedule.index') }}">
+				  <a href="{{ $roleSlug === 'super-admin' ? route('schedule.index') : ($roleSlug === 'administrator' ? route('admin.schedule.index') : ($roleSlug === 'moderator' ? route('moderator.schedule.index') : '#') ) }}">
 					<h5 class="card-title">{{ __('Schedules') }}</h5>
 				  </a>
 				</div>
@@ -38,7 +42,7 @@
 			<div class="card-body">
 			  <div class="row">
 				<div class="col mt-0">
-				  <a href="{{ route('department.index') }}">
+				  <a href="{{ $roleSlug === 'super-admin' ? route('department.index') : ($roleSlug === 'administrator' ? route('admin.department.index') : ($roleSlug === 'hr-manager' ? route('hr.department.index') : '#') ) }}">
 					<h5 class="card-title">{{ __('Departments') }}</h5>
 				  </a>
 				</div>
@@ -59,7 +63,7 @@
 			<div class="card-body">
 			  <div class="row">
 				<div class="col mt-0">
-				  <a href="{{ route('employee.index') }}">
+				  <a href="{{ $roleSlug === 'super-admin' ? route('employee.index') : ($roleSlug === 'administrator' ? route('admin.employee.index') : ($roleSlug === 'hr-manager' ? route('hr.employee.index') : '#') ) }}">
 					<h5 class="card-title">{{ __('Employees') }}</h5>
 				  </a>
 				</div>
@@ -80,7 +84,7 @@
 			<div class="card-body">
 			  <div class="row">
 				<div class="col mt-0">
-				  <a href="{{ route('user.index') }}">
+				  <a href="{{ $roleSlug === 'super-admin' ? route('user.index') : ($roleSlug === 'administrator' ? route('admin.users.index') : '#') }}">
 					<h5 class="card-title">{{ __('Users & Members') }}</h5>
 				  </a>
 				</div>
@@ -103,7 +107,7 @@
 		<div class="card-header">
 		  <div class="d-flex align-items-center justify-content-between my- py-0">
 			<h5 class="card-title mb-0">{{ __('Users & Members') }}</h5>
-			<a href="{{ route('user.index') }}" class="btn btn-secondary btn-sm my-0">
+			<a href="{{ $roleSlug === 'super-admin' ? route('user.index') : ($roleSlug === 'administrator' ? route('admin.users.index') : '#') }}" class="btn btn-secondary btn-sm my-0">
 			  <i class="fas fa-eye"></i>
 			  <span class="ps-1">{{ __('View') }}</span>
 			</a>
@@ -127,7 +131,7 @@
 				<tr>
 				  <td>{{ $loop->iteration }}</td>
 				  <td>
-					<a href="{{ route('user.edit', $user->id) }}">
+					<a href="{{ $roleSlug === 'super-admin' ? route('user.edit', $user->id) : ($roleSlug === 'administrator' ? route('admin.users.edit', $user->id) : '#') }}">
 					  <strong>{{ $user->name }}</strong>
 					</a>
 				  </td>
@@ -147,7 +151,7 @@
 		<div class="card-header">
 		  <div class="d-flex align-items-center justify-content-between my- py-0">
 			<h5 class="card-title mb-0">{{ __('Employee DataTable') }}</h5>
-			<a href="{{ route('employee.index') }}" class="btn btn-secondary btn-sm my-0">
+			<a href="{{ $roleSlug === 'super-admin' ? route('employee.index') : ($roleSlug === 'administrator' ? route('admin.employee.index') : ($roleSlug === 'hr-manager' ? route('hr.employee.index') : '#') ) }}" class="btn btn-secondary btn-sm my-0">
 			  <i class="fas fa-eye"></i>
 			  <span class="ps-1">{{ __('View') }}</span>
 			</a>
@@ -172,7 +176,7 @@
 				  <tr>
 					<td>{{ $loop->iteration }}</td>
 					<td>
-					  <a href="{{ route('employee.edit', $employee->id) }}">
+					  <a href="{{ $roleSlug === 'super-admin' ? route('employee.edit', $employee->id) : ($roleSlug === 'administrator' ? route('admin.employee.edit', $employee->id) : ($roleSlug === 'hr-manager' ? route('hr.employee.edit', $employee->id) : '#') ) }}">
 						<strong>{{ $employee->firstname . ' ' . $employee->lastname }}</strong>
 					  </a>
 					</td>

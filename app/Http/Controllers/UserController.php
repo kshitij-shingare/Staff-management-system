@@ -33,14 +33,24 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        //
-    //    $employee= User::create($request->all());
-    //      if($employee){
-    //         $salary = new Salary($request->all());
-    //         $employee->salary()->save($salary);
-    //      }
-        User::create($request->all());
-        return back()->with('success', 'user crated successfully');
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'email' => 'required|email|unique:users,email',
+            'phone' => 'nullable|string|max:30',
+            'password' => 'required|string|min:6',
+            'role_id' => 'required|exists:roles,id',
+            'status' => 'required|in:0,1',
+        ]);
+
+        User::create([
+            'name' => $request->name,
+            'email' => $request->email,
+            'phone' => $request->phone,
+            'password' => $request->password,
+            'role_id' => $request->role_id,
+            'status' => $request->status,
+        ]);
+        return back()->with('success', 'User created successfully');
     }
 
     /**
